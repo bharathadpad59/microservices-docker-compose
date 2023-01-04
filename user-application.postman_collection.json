@@ -1,0 +1,446 @@
+{
+	"info": {
+		"_postman_id": "e1486dcd-81bb-4f19-ae5d-d411ddfe56a2",
+		"name": "user-application",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "API-Versioning",
+			"item": [
+				{
+					"name": "URI-Version-V1",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/v1/personInfo",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"v1",
+								"personInfo"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "URI-Version-V2",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/v2/personInfo",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"v2",
+								"personInfo"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "RequestParam-Version-V1",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/personInfo?version=v1",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"personInfo"
+							],
+							"query": [
+								{
+									"key": "version",
+									"value": "v1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "RequestParam-Version-V2",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "version",
+								"value": "v2",
+								"type": "default"
+							}
+						],
+						"url": {
+							"raw": "localhost:8080/personInfo",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"personInfo"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Headaer-Version-V1",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "version",
+								"value": "v1",
+								"type": "default"
+							}
+						],
+						"url": {
+							"raw": "localhost:8080/personInfo",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"personInfo"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Headaer-Version-V2",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "version",
+								"value": "v2",
+								"type": "default"
+							}
+						],
+						"url": {
+							"raw": "localhost:8080/personInfo",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"personInfo"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "ConrtentType/Produer-Version-V1",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/v1+json",
+								"type": "default"
+							}
+						],
+						"url": {
+							"raw": "localhost:8080/personInfo",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"personInfo"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "ConrtentType/Produer-Version-V2",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/v2+json",
+								"type": "default"
+							}
+						],
+						"url": {
+							"raw": "localhost:8080/personInfo",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"personInfo"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Static&DynamicFilter",
+			"item": [
+				{
+					"name": "StaticFilter",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "version",
+								"value": "v2",
+								"type": "default"
+							}
+						],
+						"url": {
+							"raw": "localhost:8080/static-filter",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"static-filter"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "DyamicFilter",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "version",
+								"value": "v2",
+								"type": "default"
+							}
+						],
+						"url": {
+							"raw": "localhost:8080/dynamic-filter",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"dynamic-filter"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "USERS/POSTS-API",
+			"item": [
+				{
+					"name": "GET-All-Users",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/users/",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"users",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GET-UsersByID",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/users/3",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"users",
+								"3"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "POST-User",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept-Language",
+								"value": "fr",
+								"type": "default",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"userName\": \"Bharat\",\r\n    \"deptName\": \"IT\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/users",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"users"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "UPDATE-User",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Accept-Language",
+								"value": "fr",
+								"type": "default",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"userId\":8,\r\n    \"userName\": \"Bharat\",\r\n    \"deptName\": \"PRODUCTION\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/update/users",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"update",
+								"users"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "DELETE-User",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Accept-Language",
+								"value": "fr",
+								"type": "default",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/delete/users/8",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"delete",
+								"users",
+								"8"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GET-PostsByUserID",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/users/7/posts",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"users",
+								"7",
+								"posts"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "POST-PostsByUserID",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": " {\r\n        \"postName\": \"Bhopal\"\r\n    }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/users/7/posts",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"users",
+								"7",
+								"posts"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}

@@ -1,0 +1,78 @@
+version: '2.10'
+
+services:
+
+  configuration-server:
+    image: configuration-server-0.0.1-snapshot.jar
+    mem_limit: 700m
+    ports:
+      - "8888:8888"
+    networks:
+      - currency-network
+    depends_on:
+      - naming-server
+    environment:
+      EUREKA.CLIENT.SERVICEURL.DEFAULTZONE: http://naming-server:8761/eureka
+      
+  spring-boot-api-gateway:
+    image: spring-boot-api-gateway-0.0.1-snapshot.jar
+    mem_limit: 700m
+    ports:
+      - "8084:8084"
+    networks:
+      - currency-network
+    depends_on:
+      - naming-server
+    environment:
+      EUREKA.CLIENT.SERVICEURL.DEFAULTZONE: http://naming-server:8761/eureka
+      
+  user-application:
+    image: user-application-0.0.1-snapshot.jar
+    mem_limit: 700m
+    ports:
+      - "8080:8080"
+    networks:
+      - currency-network
+    depends_on:
+      - naming-server
+      - configuration-server
+    environment:
+      EUREKA.CLIENT.SERVICEURL.DEFAULTZONE: http://naming-server:8761/eureka
+      
+  currency-conversion:
+    image: currency-conversion-0.0.1-snapshot.jar
+    mem_limit: 700m
+    ports:
+      - "8083:8083"
+    networks:
+      - currency-network
+    depends_on:
+      - naming-server
+      - configuration-server
+    environment:
+      EUREKA.CLIENT.SERVICEURL.DEFAULTZONE: http://naming-server:8761/eureka
+      
+      
+  currency-exchange:
+    image: currency-exchange-0.0.1-snapshot.jar
+    mem_limit: 700m
+    ports:
+      - "8082:8082"
+    networks:
+      - currency-network
+    depends_on:
+      - naming-server
+      - configuration-server
+    environment:
+      EUREKA.CLIENT.SERVICEURL.DEFAULTZONE: http://naming-server:8761/eureka
+
+  naming-server:
+    image: naming-server-0.0.1-snapshot.jar
+    mem_limit: 700m
+    ports:
+      - "8761:8761"
+    networks:
+      - currency-network
+
+networks:
+  currency-network:

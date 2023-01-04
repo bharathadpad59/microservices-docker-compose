@@ -1,0 +1,80 @@
+Eureka:
+http://localhost:8761/
+
+RabbitMQ:
+http://localhost:15672/#/
+
+Zipkin:
+http://127.0.0.1:9411/zipkin/
+
+1. user-application : 8080
+2. api-gateway: 8084
+3. configuration-server: 8888
+4. curency-conversion: 8083
+5. currency-exchage : 8082
+6 naming-server: 8761
+
+1. Start Naming
+2. Start spring cloud config server
+3. Start Rabbit Mq
+4. Start Zipkin:   set RABBIT_URI=amqp://localhost   & java -jar zipkin-server-2.23.18-exec.jar
+5. Other APPS
+
+
+DOCKER:
+
+docker build .
+docker build -t {jar name} .
+
+docker images 
+docker container ls 
+docker container ls -a
+
+docker imge remove {image id}  - this will not work unless and untill conatiner used thsi imageid so u need
+to delete container first. for that stop container 1st
+
+docker container stop {containerID} and then prune=remove
+
+docker prune
+
+docker run -p 5000:8081 bharathadpad/{imageName}:{imageVersion/tag Name}
+
+docker run -p 5000:8081 -d (detach mode), -f(follow logs mode)
+
+5000 docker port will run on docker ip address (192.123.45)
+8080 app port wil run on 123.23.12 i.e localhost
+
+
+docker logs {imageID}  docker logs -f{conatinerID}  follow logs
+
+docke-compose up
+
+                                                                                                                                          
+
+
+
+KUBERNETES K8S 
+
+minikube start --driver=docker
+minikube status
+kubectl cluster-info
+minikube docker-env                       we give permission for K8sto read our docker images 
+kubectl create deployment spring-boot-k8s --image=user-application-0.0.1-k8s --port=8080
+kubectl get deployment
+kubectl describe deployment spring-boot-k8s
+kubectl get pods
+kubectl get node
+kubectl delete deployment spring-boot-k8s
+kubectl delete pod spring-boot-k8s
+kubectl delete node spring-boot-k8s
+kubectl expose deployment spring-boot-kube --type=NodePort
+kubectl get services
+minikube service spring-boot-kube --url
+minikube stop
+minikube delete
+
+
+kubectl apply -f k8s-deployment.yaml                    it will craete deployement object
+kubectl apply -f k8s-service.yaml 
+
+http://{nodeIP}:{Port}/{API-URL}
